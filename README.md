@@ -2,7 +2,6 @@
 
 Este es el script para automatizar la actualización y exportación de los mapas de dengue a través de QGIS.
 
-## Instalación y ejecución
 
 ### Requisitos
 
@@ -25,7 +24,7 @@ Este es el script para automatizar la actualización y exportación de los mapas
 4.- Se abrirá un cuadro de lado derecho, seleccionamos la opción de abrir script.
 <img width="549" height="145" alt="image" src="https://github.com/user-attachments/assets/8a9c0751-391c-47c3-8a6c-130531595903" />
 
-5. En el cuadro de búsqueda seleccionamos el Script del repositorio. Una vez abierto, se tiene que modificar el número de la semana que vamos a construir.
+5.- En el cuadro de búsqueda seleccionamos el Script del repositorio. Una vez abierto, se tiene que modificar el número de la semana que vamos a construir.
 <img width="655" height="96" alt="image" src="https://github.com/user-attachments/assets/33ca6906-a328-4d45-9088-f1fa28f0d603" />
 
 6.- Después de modificar la semana, se da clic en el botón de "ejecutar script".
@@ -42,7 +41,7 @@ En caso de que se requiera cambiar el año; Antes de ejecutar el script, se debe
 
 Se abrirá la ventana de la composición, aquí se debe seleccionar la leyenda que se quiere actulizar:
 <img width="1273" height="582" alt="image" src="https://github.com/user-attachments/assets/5b166d32-91e4-4af2-8001-731bd4ef85b0" />
-Al igual que la otra leyenda.
+
 
 
 
