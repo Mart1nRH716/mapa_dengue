@@ -5,6 +5,7 @@ from PyQt5.QtGui import QColor
 import pyodbc
 import traceback
 import numpy as np
+import csv
 import os
 
 try:
@@ -37,7 +38,8 @@ try:
 	# Consultar los datos de la vista 
 	query = "SELECT cvegeo, ESTIMADOS FROM dbo.vs_Dengue"
 	cursor.execute(query)
-	
+
+
 	# Crear diccionario con los resultados
 	dengue_data = {}
 	for row in cursor:
@@ -411,6 +413,20 @@ try:
 	if not os.path.exists(CARPETA_EXPORTACION):
 		os.makedirs(CARPETA_EXPORTACION)
 		print(f"Carpeta creada: {CARPETA_EXPORTACION}")
+
+	# Guardar los datos de la consulta en un csv:
+	ruta_csv = f'{CARPETA_EXPORTACION}\dengue_consulta_{SEMANA_EPIDEMIOLOGICA}.csv'
+	with open(ruta_csv, mode='w', newline='', encoding='utf-8') as f:
+		writer = csv.writer(f)
+
+		# Encabezados
+		writer.writerow(['cvegeo', 'ESTIMADOS'])
+
+		# Filas
+		for clave, valor in dengue_data.items():
+			writer.writerow([clave, valor])
+
+		print(f"CSV generado en: {ruta_csv}")
 	
 	# Configurar exportador
 	exporter = QgsLayoutExporter(layout)
