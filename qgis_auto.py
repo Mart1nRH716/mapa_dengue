@@ -12,9 +12,10 @@ try:
 	# ============= CONFIGURACIÓN DE VARIABLES =============
 	SEMANA_EPIDEMIOLOGICA = 53  # Colocar la semana epidemiológica actual
 	RESOLUCION_IMAGENES = 150
+	ANIO = 2026
 	# Configuración de exportación
 	NOMBRE_LAYOUT = "dengue2024b"  # Nombre del layout en QGIS
-	CARPETA_EXPORTACION = r"C:\QGIS_Mapas_Dengue\Atlas_Dengue_" + str(SEMANA_EPIDEMIOLOGICA)  # Carptera donde se guardarán las imágenes exportadas
+	CARPETA_EXPORTACION = r"C:\QGIS_Mapas_Dengue\Atlas_Dengue_" + str(SEMANA_EPIDEMIOLOGICA) + "_" + str(ANIO)  # Carptera donde se guardarán las imágenes exportadas
 	
 	# ============= CONEXIÓN A BASE DE DATOS =============
 	# Configuración con PyODBC
@@ -144,10 +145,6 @@ try:
 		
 		# Tomar el límite superior de la primera clase de Jenks
 		primer_corte_superior = int(rangos_jenks_4[0].upperBound())
-		
-		# Si el primer corte de Jenks es 1 o menos, usar el segundo corte
-		if primer_corte_superior <= 1:
-			primer_corte_superior = int(rangos_jenks_4[1].upperBound())
 		
 		# Contar valores en el rango 1 - primer_corte_superior
 		count_clase_2 = len(valores_array[(valores_array > 1) & 
@@ -415,7 +412,7 @@ try:
 		print(f"Carpeta creada: {CARPETA_EXPORTACION}")
 
 	# Guardar los datos de la consulta en un csv:
-	ruta_csv = f'{CARPETA_EXPORTACION}\dengue_consulta_{SEMANA_EPIDEMIOLOGICA}.csv'
+	ruta_csv = f'{CARPETA_EXPORTACION}\dengue_consulta_{SEMANA_EPIDEMIOLOGICA}_{ANIO}.csv'
 	with open(ruta_csv, mode='w', newline='', encoding='utf-8') as f:
 		writer = csv.writer(f)
 
@@ -439,7 +436,7 @@ try:
 	export_settings.generateWorldFile = False
 	
 	# Nombre del archivo base con la semana
-	nombre_base = f"Atlas_Dengue_Semana_{SEMANA_EPIDEMIOLOGICA}"
+	nombre_base = f"Atlas_Dengue_Semana_{SEMANA_EPIDEMIOLOGICA}_{ANIO}"
 	
 	# Exportar el atlas como
 	print(f"Exportando atlas como PNG a: {CARPETA_EXPORTACION}")
