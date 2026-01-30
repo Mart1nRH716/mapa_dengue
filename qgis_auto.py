@@ -10,7 +10,7 @@ import os
 
 try:
 	# ============= CONFIGURACIÓN DE VARIABLES =============
-	SEMANA_EPIDEMIOLOGICA = 53  # Colocar la semana epidemiológica actual
+	SEMANA_EPIDEMIOLOGICA = 2  # Colocar la semana epidemiológica actual
 	RESOLUCION_IMAGENES = 150
 	ANIO = 2026
 	# Configuración de exportación
@@ -479,7 +479,7 @@ try:
 				feature_name = f"_Pagina_{i+1}"
 			
 			# Crear nombre de archivo
-			nombre_archivo = f"{nombre_base}_Pagina_{i+1}{feature_name}.png"
+			nombre_archivo = f"Output_{i+1}.png"
 			ruta_archivo = os.path.join(CARPETA_EXPORTACION, nombre_archivo)
 			result = exporter.exportToImage(ruta_archivo, export_settings)
 			
